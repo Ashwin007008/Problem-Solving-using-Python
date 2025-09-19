@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loops in Python - Pro Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+            padding: 40px 32px;
+            animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+            color: #2d5be3;
+            letter-spacing: 1px;
+            animation: slideInLeft 1s;
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        .intro {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            animation: fadeIn 1.5s;
+        }
+        .emoji {
+            font-size: 2.2rem;
+            vertical-align: middle;
+            animation: bounce 1.5s infinite alternate;
+        }
+        @keyframes bounce {
+            to { transform: translateY(-10px);}
+        }
+        .section {
+            margin-bottom: 36px;
+            animation: fadeIn 1.5s;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            color: #1a3a6b;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .code-block {
+            background: #f4f7fa;
+            border-radius: 8px;
+            padding: 18px;
+            font-family: 'Fira Mono', 'Consolas', monospace;
+            font-size: 1.08rem;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+            overflow-x: auto;
+            transition: box-shadow 0.3s;
+        }
+        .code-block:hover {
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+        }
+        .tip {
+            background: linear-gradient(90deg, #e3f0ff 0%, #f7fbff 100%);
+            border-left: 6px solid #2d5be3;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 1.08rem;
+            color: #1a3a6b;
+            animation: fadeIn 1.5s;
+        }
+        .svg-img {
+            display: block;
+            margin: 18px auto 18px auto;
+            max-width: 420px;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 18px 6px; }
+            h1 { font-size: 2rem; }
+            .section-title { font-size: 1.2rem; }
+            .svg-img { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🤖</span> Loops in Python</h1>
+        <div class="intro">
+            <span class="emoji">😫</span> If you had to write a message 10 times, would you type it again and again manually? Or would you write a loop that does it for you? <span class="emoji">🤖</span><br>
+            <strong>That’s the beauty of loops!</strong> They help us repeat instructions automatically, saving time and making our code clean and powerful.
+        </div>
+        <div class="section">
+            <div class="section-title">What is a Loop?</div>
+            <div>
+                A loop is a programming tool that repeats a block of code as long as a condition is true (or for a fixed number of times).
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">1. For Loop</div>
+            <div class="tip">Use a <strong>for loop</strong> when you know how many times you want to repeat something.</div>
+            <!-- SVG for For Loop -->
+            <svg class="svg-img" viewBox="0 0 420 180">
+                <text x="20" y="30" font-size="22" font-family="Montserrat" fill="#e94f7a" font-weight="bold">for loop</text>
+                <rect x="20" y="50" width="380" height="40" rx="10" fill="#f4f7fa" stroke="#e94f7a" stroke-width="2"/>
+                <text x="35" y="78" font-size="18" font-family="Fira Mono" fill="#222">for i in range(0, 5):</text>
+                <text x="60" y="105" font-size="18" font-family="Fira Mono" fill="#222">print(i)</text>
+                <circle cx="60" cy="135" r="16" fill="#e94f7a"/>
+                <text x="54" y="140" font-size="16" font-family="Montserrat" fill="#fff">0</text>
+                <circle cx="120" cy="135" r="16" fill="#e94f7a"/>
+                <text x="114" y="140" font-size="16" font-family="Montserrat" fill="#fff">1</text>
+                <circle cx="180" cy="135" r="16" fill="#e94f7a"/>
+                <text x="174" y="140" font-size="16" font-family="Montserrat" fill="#fff">2</text>
+                <circle cx="240" cy="135" r="16" fill="#e94f7a"/>
+                <text x="234" y="140" font-size="16" font-family="Montserrat" fill="#fff">3</text>
+                <circle cx="300" cy="135" r="16" fill="#e94f7a"/>
+                <text x="294" y="140" font-size="16" font-family="Montserrat" fill="#fff">4</text>
+            </svg>
+            <div class="code-block">
+                <strong>Python Example</strong><br>
+                <code>
+for i in range(0, 5):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)  # Output: 0, 1, 2, 3, 4
+                </code>
+            </div>
+            <ul>
+                <li>The loop starts at 0 (<code>i = 0</code>)</li>
+                <li>Keeps going as long as <code>i &lt; 5</code></li>
+                <li>After each print, <code>i</code> is increased by 1</li>
+            </ul>
+            <div class="tip">✅ Perfect for fixed sequences, like printing tables, sums, etc.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">2. While Loop</div>
+            <div class="tip">Use a <strong>while loop</strong> when you don’t know exactly how many times you’ll loop, but you know the condition.</div>
+            <!-- SVG for While Loop -->
+            <svg class="svg-img" viewBox="0 0 420 180">
+                <text x="20" y="30" font-size="22" font-family="Montserrat" fill="#e94f7a" font-weight="bold">while loop</text>
+                <rect x="20" y="50" width="380" height="40" rx="10" fill="#f4f7fa" stroke="#2d5be3" stroke-width="2"/>
+                <text x="35" y="78" font-size="18" font-family="Fira Mono" fill="#222">while i &lt; 5:</text>
+                <text x="60" y="105" font-size="18" font-family="Fira Mono" fill="#222">print(i)</text>
+                <text x="60" y="125" font-size="18" font-family="Fira Mono" fill="#222">i += 1</text>
+                <polyline points="60,135 60,155 120,155 120,135" fill="none" stroke="#2d5be3" stroke-width="2"/>
+                <circle cx="60" cy="135" r="16" fill="#2d5be3"/>
+                <text x="54" y="140" font-size="16" font-family="Montserrat" fill="#fff">0</text>
+                <circle cx="120" cy="135" r="16" fill="#2d5be3"/>
+                <text x="114" y="140" font-size="16" font-family="Montserrat" fill="#fff">1</text>
+                <circle cx="180" cy="135" r="16" fill="#2d5be3"/>
+                <text x="174" y="140" font-size="16" font-family="Montserrat" fill="#fff">2</text>
+                <circle cx="240" cy="135" r="16" fill="#2d5be3"/>
+                <text x="234" y="140" font-size="16" font-family="Montserrat" fill="#fff">3</text>
+                <circle cx="300" cy="135" r="16" fill="#2d5be3"/>
+                <text x="294" y="140" font-size="16" font-family="Montserrat" fill="#fff">4</text>
+            </svg>
+            <div class="code-block">
+                <strong>Python Example</strong><br>
+                <code>
+i = 0<br>
+while i &lt; 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i += 1  # Output: 0, 1, 2, 3, 4
+                </code>
+            </div>
+            <ul>
+                <li><code>i</code> starts at 0</li>
+                <li>If <code>i &lt; 5</code>, it prints and increases <code>i</code></li>
+                <li>When <code>i</code> becomes 5, the loop exits</li>
+            </ul>
+            <div class="tip">✅ Great for waiting for user input, checking sensor values, or logging into a system.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">3. Simulating Do-While Loop in Python</div>
+            <div class="tip">Python does not have a built-in <strong>do-while</strong> loop, but you can simulate it using <code>while True</code> and <code>break</code>.</div>
+            <!-- SVG for Do-While Simulation -->
+            <svg class="svg-img" viewBox="0 0 420 180">
+                <text x="20" y="30" font-size="22" font-family="Montserrat" fill="#e94f7a" font-weight="bold">do-while (Python style)</text>
+                <rect x="20" y="50" width="380" height="40" rx="10" fill="#f4f7fa" stroke="#f9a825" stroke-width="2"/>
+                <text x="35" y="78" font-size="18" font-family="Fira Mono" fill="#222">while True:</text>
+                <text x="60" y="105" font-size="18" font-family="Fira Mono" fill="#222">print(i)</text>
+                <text x="60" y="125" font-size="18" font-family="Fira Mono" fill="#222">if i &gt;= 5: break</text>
+                <polyline points="60,135 60,155 120,155 120,135" fill="none" stroke="#f9a825" stroke-width="2"/>
+                <circle cx="60" cy="135" r="16" fill="#f9a825"/>
+                <text x="54" y="140" font-size="16" font-family="Montserrat" fill="#fff">0</text>
+                <circle cx="120" cy="135" r="16" fill="#f9a825"/>
+                <text x="114" y="140" font-size="16" font-family="Montserrat" fill="#fff">1</text>
+                <circle cx="180" cy="135" r="16" fill="#f9a825"/>
+                <text x="174" y="140" font-size="16" font-family="Montserrat" fill="#fff">2</text>
+                <circle cx="240" cy="135" r="16" fill="#f9a825"/>
+                <text x="234" y="140" font-size="16" font-family="Montserrat" fill="#fff">3</text>
+                <circle cx="300" cy="135" r="16" fill="#f9a825"/>
+                <text x="294" y="140" font-size="16" font-family="Montserrat" fill="#fff">4</text>
+            </svg>
+            <div class="code-block">
+                <strong>Python Example</strong><br>
+                <code>
+i = 0<br>
+while True:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;i += 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if i &gt;= 5:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break  # Output: 0, 1, 2, 3, 4
+                </code>
+            </div>
+            <ul>
+                <li>The code inside the loop runs at least once</li>
+                <li>Breaks out of the loop when <code>i &gt;= 5</code></li>
+            </ul>
+            <div class="tip">✅ Useful for input validation, menu loops, and games.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Flowchart: While vs Do-While Loop</div>
+           <center>
+            <img src="../PSUP/Do_while_vs_While.png" alt="">
+           </center>
+            <div class="tip">
+                <strong>Do-While Loop:</strong> Executes the task first, then checks the condition.<br>
+                <strong>While Loop:</strong> Checks the condition before executing the task.
+            </div>
+        </div>
+        <div class="section tip">
+            Loops make your programs smarter, shorter, and super efficient.<br>
+            Instead of repeating yourself, let the computer handle repetition.<br>
+            <strong>You’re now ready to build logic that runs again and again — exactly when and how you want. All the best, and keep looping forward!</strong>
+        </div>
+    </div>
+</body>
+</html>

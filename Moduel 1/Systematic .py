@@ -8,7 +8,7 @@
 age = int(input("Enter a number: "))
 
 #Taking String Input from user and printing it
-Last name = input("Enter your name: ")
+last_name = input("Enter your name: ")
 
-print("Hello, " + Last name + "! You are " + str(age) + " years old.")
+print("Hello, " + last_name + "! You are " + str(age) + " years old.")
 25

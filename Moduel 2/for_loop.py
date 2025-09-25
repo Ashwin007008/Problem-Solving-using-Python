@@ -46,3 +46,9 @@ for i in range(1, n + 1):       # Outer loop for rows
     for j in range(1, i + 1):   # Inner loop to print numbers in each row
         print(j, end=" ")       # Print number j with space, no new line
     print()                     # Move to the next line after each row
+
+
+for i in range(5):  # Loop 5 times
+    a = int(input("Enter a number: ")) # Input  numbers
+    b = int(input("Enter a number: ")) # Input  numbers
+    print("Sum is:", a + b) # Print the sum of the numbers
